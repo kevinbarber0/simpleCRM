@@ -7,20 +7,18 @@ const app = express()
 
 app.use(express.json())
 
+/// READ
+app.get('/customers', async(req, res) =>{
 
-app.get('/', (req, res) => {
-    res.send('Hello NODE API')
+        try {
+            const customers = await Customer.find({});
+            res.status(200).json(customers);
+        } catch (e) {
+            res.status(500).json({message: error.message})
+        }
 })
 
-app.get('/blog', (req, res) => {
-    res.send('Hello Kevin')
-})
-
-// app.post('/customer', (req, res) => {
-//     console.log(req.body)
-//     res.send(req.body)
-// })
-
+// Create
 app.post('/customer', async(req, res) => {
     try {
         const customer = await Customer.create(req.body)
@@ -29,6 +27,17 @@ app.post('/customer', async(req, res) => {
     } catch(e) {
         console.log(e.message);
         res.status(500).json({message: e.message})
+    }
+})
+
+app.get('/customers/:id', async(req, res) =>{
+
+    try {
+        const {id} = req.params;
+        const customer = await Customer.findById(id);
+        res.status(200).json(customer);
+    } catch (e) {
+        res.status(500).json({message: error.message})
     }
 })
 
