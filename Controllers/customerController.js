@@ -2,7 +2,6 @@ const Customers = require('../models/customers');
 const mongoose = require('mongoose');
 
 strictPopulate: false
-
 const getAllCustomers = async (req,res) => {
         try {
             const customers = await Customers.find({});
@@ -12,6 +11,7 @@ const getAllCustomers = async (req,res) => {
         }
 }
 
+strictPopulate: false
 const getOneCustomer = async (req,res) => {
     try {
         const {id} = req.params;
@@ -22,6 +22,7 @@ const getOneCustomer = async (req,res) => {
     }
 }
 
+strictPopulate: false
 async function deleteCustomer(req, res) {
     try {
         const id = req.params.id
@@ -35,6 +36,7 @@ async function deleteCustomer(req, res) {
     }
 }
 
+strictPopulate: false
 async function updateCustomer(req, res) {
     try {
         const id = req.params.id
@@ -48,6 +50,7 @@ async function updateCustomer(req, res) {
     }
 }
 
+strictPopulate: false
 async function createCustomer(req, res) {
     try {
         const customer = await Customers.create(req.body)
@@ -65,4 +68,4 @@ module.exports = {
     createCustomer,
     updateCustomer,
     deleteCustomer
-}
+    }

@@ -1,43 +1,38 @@
 const mongoose = require('mongoose')
 
-const customerSchema = mongoose.Schema(
+const servicesSchema = mongoose.Schema(
     {
         name: {
             type: String,
-            required:[true, "Please enter a customer name"]
+            required:[true, "Please enter a service"]
         },
 
-        email: {
+        description: {
             type: String,
             required:false,
         },
 
-        phone: {
+        price: {
             type: String,
             required:false,
         },
 
-        activated: {
+        started: {
             type: String,
             required: false,
             default: 0
         },
 
-        tickets: {
-            type: Number,
+        annualValue: {
+            type: String,
             required: false,
         },
-
-        subs: {
-            type: Number,
-            required: false,
-        }
     },
     {
         timestamps: true,
     }
 )
 
-const Customer = mongoose.model('Customer', customerSchema);
+const Service = mongoose.model('Service', servicesSchema);
 
-module.exports = Customer;
+module.exports = Service;

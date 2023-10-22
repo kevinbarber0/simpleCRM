@@ -17,8 +17,7 @@ Their data will include the following:
     -Account Expiration Date
     -Amount of support tickets
     -Active services the customer is subscribed
-    -Promotions the customer is enrolled in
-
+    
     This website will have a very simple and clean look so that Admin is not overloaded with too much unrelated data while revewiing customer records.
 
 
