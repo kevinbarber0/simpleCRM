@@ -6,6 +6,7 @@ const cors = require('cors')
 
 const customerController = require('./Controllers/customerController')
 
+
 const PORT = process.env.PORT || 3001;
 
 const app = express();
@@ -13,7 +14,8 @@ app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(cors())
 
-//cRud - Read
+
+//cRud - Read //
 app.get('/customers', customerController.getAllCustomers)
 app.get('/customers/:id', customerController.getOneCustomer)
 
