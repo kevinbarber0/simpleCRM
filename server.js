@@ -22,10 +22,10 @@ app.get('/customers/:id', customerController.getOneCustomer)
 //Crud - Create
 app.post('/customers/', customerController.createCustomer)
 
-//crUd - Update
+// crUd - Update
 // app.put('/customers/:id', customerController.updateCustomer)
 
-//cruD - Delete
-// app.delete('/customers/:id', customerController.deleteCustomer)
+// cruD - Delete
+app.delete('/customers/:id', customerController.deleteCustomer)
 
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
