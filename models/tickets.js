@@ -1,10 +1,16 @@
 const mongoose = require('mongoose')
+const{Schema} = require('mongoose')
 
-const serviceSchema = mongoose.Schema(
+const ticketsSchema = mongoose.Schema(
     {
-        name: {
+        issue: {
             type: String,
-            required:[true, "Please enter a service"]
+            required:[true, "Please explain your issue"]
+        },
+
+        supportRep: {
+            type: String,
+            required:false,
         },
 
         description: {
@@ -12,27 +18,18 @@ const serviceSchema = mongoose.Schema(
             required:false,
         },
 
-        price: {
-            type: String,
-            required:false,
-        },
-
-        started: {
+        status: {
             type: String,
             required: false,
             default: 0
         },
 
-        annualValue: {
-            type: String,
-            required: false,
-        },
     },
     {
         timestamps: true,
     }
 )
 
-const Service = mongoose.model('Service', serviceSchema);
+const Ticket = mongoose.model('Ticket', ticketsSchema);
 
-module.exports = Service;
+module.exports = Ticket;
