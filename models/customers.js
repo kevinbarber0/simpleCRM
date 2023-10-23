@@ -1,7 +1,10 @@
 const mongoose = require('mongoose')
+const{Schema} = require('mongoose')
 
 const customerSchema = mongoose.Schema(
     {
+        
+
         name: {
             type: String,
             required:[true, "Please enter a customer name"]
@@ -23,16 +26,19 @@ const customerSchema = mongoose.Schema(
             default: 0
         },
 
+        subs: {
+            type: Number,
+            required: false,
+        },
+
         tickets: {
             type: Number,
             required: false,
         },
 
-        subs: {
-            type: Number,
-            required: false,
-        }
+        ticket:{type: Schema.Types.ObjectId, ref: 'tickets', required: false} ,
     },
+    
     {
         timestamps: true,
     }
